@@ -279,7 +279,7 @@ on p.orderid = o.orderid) a
 ``` 
 
 
-## For Detailed Sql Query Click this [Link](https://github.com/aniketsharma345/E-Commerce-Data-Base-Managment/blob/main/E_commerce.sql)
+## For Detailed Sql Query Click [HERE](https://github.com/aniketsharma345/E-Commerce-Data-Base-Managment/blob/main/E_commerce.sql)
 
 ## Conclusion
 
