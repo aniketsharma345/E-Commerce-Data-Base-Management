@@ -23,7 +23,7 @@ The advanced SQL project for an e-commerce database involves creating, managing,
 ##  3. Customers
 
  This table stores information about the customers who make purchases.CustomerID (INT): 
- 1. Primary key, auto-incremented.
+ 1. CustimweID(INT): Primary key, auto-incremented.
  2. FirstName (VARCHAR(255)): First name of the customer.
  3. LastName (VARCHAR(255)): Last name of the customer.
  4. Email (VARCHAR(255)): Email address of the customer, unique.
