@@ -448,6 +448,20 @@ FROM Orders o
 INNER JOIN OrderDetails od ON o.OrderID = od.OrderID
 GROUP BY o.CustomerID, od.ProductID;
 
+ ALTER TABLE Products 
+ADD CONSTRAINT uq_product UNIQUE (ProductName, CategoryID);
+
+ALTER TABLE Products 
+ADD CONSTRAINT ck_price CHECK (Price > 0);
+
+-- Ensure customer email is unique
+ALTER TABLE Customers 
+ADD CONSTRAINT uq_email UNIQUE (Email);
+
+-- Ensure one customer can only review a product once
+ALTER TABLE Reviews 
+ADD CONSTRAINT uq_review UNIQUE (CustomerID, ProductID);
+
     
     
 
