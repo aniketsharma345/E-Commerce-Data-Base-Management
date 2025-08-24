@@ -245,8 +245,18 @@ FROM Products p
 LEFT JOIN OrderDetails od ON p.ProductID = od.ProductID
 WHERE od.ProductID IS NULL;
 ```
-## 
-8. Calculate the return rate for each product
+
+``` SQL
+select
+       ProductID,
+       productname
+from products 
+where ProductID not in (select distinct productid 
+                    from orderdetails
+                     order by productid)
+
+```
+## 8. Calculate the return rate for each product
 ``` SQL
 with cte as (
 SELECT o.productid,count(o.orderid),count(r.returnid),
