@@ -258,18 +258,19 @@ where ProductID not in (select distinct productid
 ```
 ## 8. Calculate the return rate for each product
 ``` SQL
-with cte as (
-SELECT o.productid,count(o.orderid),count(r.returnid),
-count(r.returnid)/count(o.orderid) *100 as return_rate
-FROM orderdetails o
-left JOIN RETURNS R
-ON o.orderid = r.returnid
-group by o.productid)
-select cte.productid,p.productname,cte.return_rate
-from cte 
-join products p
-on p.productid = cte.productid;
+SELECT 
+    p.ProductName,
+    SUM(od.Quantity) AS TotalSold,
+    SUM(CASE WHEN r.ReturnID IS NOT NULL THEN od.Quantity ELSE 0 END) AS Returned,
+    (SUM(CASE WHEN r.ReturnID IS NOT NULL THEN od.Quantity ELSE 0 END) * 100.0 / SUM(od.Quantity)) AS ReturnRatePercent
+FROM OrderDetails od
+JOIN Products p ON od.ProductID = p.ProductID
+JOIN Orders o ON od.OrderID = o.OrderID
+LEFT JOIN Returns r ON o.OrderID = r.OrderID
+GROUP BY p.ProductName;
+
 ```
+
 
 ## 9.Get the list of customers along with their most preferred product.
 
