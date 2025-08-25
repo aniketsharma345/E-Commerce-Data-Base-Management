@@ -154,7 +154,10 @@ Certainly! Here are the relationship statuses for the e-commerce project tables:
     - **Relationship:** "is preferred by"
     - **Type of Relation:** 1 to many
     - **Explanation:** A product can be preferred by many customers. One product preference is for one product.
-   
+
+### ER DIAGRAM
+![My Image](https://github.com/aniketsharma345/E-Commerce-Data-Base-Management/blob/main/ECOM_ER1.png)
+    
 ### SQL QUERIES
     
 
